@@ -1,0 +1,16 @@
+declare
+    n number :=&n;
+    a:=0;
+begin
+        for i in 2 ..(n-1) loop
+            if mod(n,i) = 0 then
+                a:=1;
+                exit;
+            end if;
+        end loop;
+    if a=0 then
+        dbms_output.put_line(n || ' is a prime number.');
+    else
+        dbms_output.put_line(n || ' is not a prime number.');
+    end if;
+end;

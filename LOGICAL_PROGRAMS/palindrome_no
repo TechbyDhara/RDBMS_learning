@@ -1,0 +1,17 @@
+declare
+d varchar2(20):='&d';
+len number:=0;
+ch varchar2(10);
+begin
+len:=length(d);
+for i in reverse 1..len loop
+ch :=ch||substr(d,i,1);
+end loop;
+dbms_output.put_line('reverse string: '||ch);
+if ch=d then
+dbms_output.put_line('palindrome string');
+else
+dbms_output.put_line('string is not palindrome');
+end if;
+end;
+/

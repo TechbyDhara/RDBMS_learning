@@ -1,0 +1,16 @@
+declare
+d varchar2(20):='&d';
+ch varchar2(10);
+c number:=0;
+len number:=0;
+begin
+len:=length(d);
+for i in 1..len loop
+ch :=substr(d,i,1);
+if ch in ('a','e','i','o','u') then
+ c:=c+1 ;
+end if;
+end loop;
+dbms_output.put_line('no of vowels are: '||c);
+end;
+/
