@@ -1,0 +1,52 @@
+create or replace procedure dpro(ch varchar,a number,b number,c number)  as
+    an number;
+    function dadd(a number,b number,c number) return number as
+            s number;
+        begin
+            s:=a+b+c;
+            return s;
+       end dadd;
+  function dmax(a number,b number,c number) return number as
+            m number;
+        begin
+            m:=greatest(a,b,c);
+            return m;
+       end dmax;
+begin
+     if ch='max' then
+        an:=dmax(a,b,c);
+        dbms_output.put_line('Max is: '||an);
+     elsif ch='add' then
+        an:= dadd(a,b,c);
+        dbms_output.put_line('Sum is: '||an);
+     else
+        dbms_output.put_line('choose either max or add..!');
+    end if;
+end;
+/
+CREATE OR REPLACE PROCEDURE dpro(ch VARCHAR2, eno NUMBER) AS
+    an VARCHAR2(70);
+
+    -- Internal function to delete department
+    FUNCTION del(a NUMBER) RETURN VARCHAR2 AS
+    BEGIN
+        DELETE FROM emp WHERE deptno = a;
+        RETURN 'deleted successfully';
+    END del;
+
+BEGIN
+    IF ch = 'delete' THEN
+        an := del(eno);
+        DBMS_OUTPUT.PUT_LINE(an);
+        
+    ELSIF ch = 'add' THEN
+        -- You must define dadd or remove this part
+        -- Example: an := dadd(a, b, c); -- Ensure a, b, c are declared and function exists
+        DBMS_OUTPUT.PUT_LINE('Add operation not implemented.');
+        
+    ELSE
+        DBMS_OUTPUT.PUT_LINE('Choose either delete or add..!');
+    END IF;
+END;
+/
+

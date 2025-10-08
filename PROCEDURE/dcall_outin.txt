@@ -1,0 +1,17 @@
+create or replace procedure demp(
+dno in emp.empno%type,
+dname out emp.ename%type,
+dsal out emp.sal%type)
+as
+begin
+select ename,sal into dname, dsal from emp where empno=dno;
+end;
+
+create or replace procedure dcall(
+dno emp.empno%type) as
+dname emp.ename%type;
+dsal emp.sal%type;
+begin
+dcall(dno,dname,dsal);
+dbms_output.put_line(dno||dname||dsal);
+end;

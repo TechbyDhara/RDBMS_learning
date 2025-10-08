@@ -1,0 +1,47 @@
+create or replace procedure pmsg(n number) as
+a number :=0;
+i number:=2;
+begin
+while  i<n loop
+ if mod(n,i) = 0 then
+    a:=1;
+    exit;
+ end if;
+ i:=i+1;
+end loop;
+ if a =0 then
+ dbms_output.put_line('number is prime');
+else
+ dbms_output.put_line('number is not prime');
+end if;
+end;
+/
+
+
+
+
+
+
+
+create or replace procedure dmsg4(n number) as
+a number :=0;
+i number := 2;
+begin
+loop 
+ i:=i+1;
+ if mod(n,i) = 0 then
+    a:=1;
+    exit;
+ end if;
+ exit when i<n;
+ end loop;
+ if a = 0 then
+ dbms_output.put_line('number is prime');
+else
+ dbms_output.put_line('number is not prime');
+end if;
+ end;
+/
+
+
+/
