@@ -1,0 +1,12 @@
+declare
+   n number:=&n;
+   fact number:=1;
+begin
+    dbms_output.put_line('Number is: '||n);
+   for i in 2..n loop
+         fact:=fact*i;
+    end loop;
+
+ dbms_output.put_line('Factorial is: '||fact);
+end;
+/

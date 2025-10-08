@@ -1,0 +1,17 @@
+declare
+ a number:=0;
+ b number:=1;
+ summ number:=0;
+n number :=&n;
+begin
+       dbms_output.put_line('fibonacchi series: ');
+       dbms_output.put_line(a);
+   dbms_output.put_line(b);
+     for i in 1..n loop
+        summ:=a+b;
+        a:=b;
+        b:=summ;
+        dbms_output.put_line(b);
+       end loop;
+end;
+/
