@@ -1,0 +1,23 @@
+
+ create or replace package dpak as
+ procedure dmax(a number,b number,c number);
+ procedure dadd(a number,b number);
+ end dpak;
+ /
+
+
+create or replace package body dpak as
+procedure dmax(a number,b number,c number) as
+d number(7);
+begin
+d:= greatest(a,b,c);
+dbms_output.put_line(d||' is max');
+end dmax;
+procedure dadd(a number,b number) as
+dt number(7);
+begin
+dt:=a+b;
+dbms_output.put_line('sum '||dt);
+end dadd;
+end dpak;
+/
