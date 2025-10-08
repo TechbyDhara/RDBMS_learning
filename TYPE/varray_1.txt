@@ -1,0 +1,11 @@
+ declare
+ type nm is varray(5) of varchar2(10);
+ sname nm;
+ begin
+ sname := nm('a','b','c','d','e');
+ for i in 1..5
+ loop
+ dbms_output.put_line(sname(i));
+ end loop;
+ end;
+

@@ -1,0 +1,16 @@
+declare
+type nm is table of number index by varchar2(10);
+name nm;
+chh varchar2(10);
+begin
+name('A'):= 1200;
+name('B'):= 1500;
+name('C'):= 1400;
+name('D'):= 1300;
+for i in 65..68
+loop
+chh:=chr(i);
+dbms_output.put_line(chh||' salary is : '||name(chh));
+end loop;
+end;
+/
