@@ -1,0 +1,7 @@
+declare
+  dsal number;
+begin
+  select avg(sal) into dsal from emp;
+  dbms_output.put_line('average sal :  '||dsal);
+end;
+/

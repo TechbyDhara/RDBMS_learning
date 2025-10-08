@@ -1,0 +1,9 @@
+declare
+   del emp%rowtype;
+begin
+      del.ename :='&del';
+    select * into del from emp where ename=del.ename;
+    delete from emp where ename=del.ename;
+  dbms_output.put_line('delete salary successfully.................!');
+end;
+/

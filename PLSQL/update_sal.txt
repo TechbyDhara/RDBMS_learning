@@ -1,0 +1,9 @@
+declare
+  dname emp.ename%type := '&dname';
+ dsal emp.sal%type := &sal;
+begin
+    select ename into dname from emp where ename=dname;
+   update emp set sal=dsal where ename=dname;
+  dbms_output.put_line('update salary successfully.................!');
+end;
+/
