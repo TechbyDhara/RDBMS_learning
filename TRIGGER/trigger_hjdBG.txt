@@ -1,0 +1,20 @@
+create or replace trigger ins
+before insert
+on hjd
+for each row
+begin
+if :new.sgender ='m' then
+insert into table boys values(:new.sno,:new.sname,:new.sgender);
+elsif :new.sgender='f' then
+insert into table girls values(:new.sno,:new.sname,:new.sgender);
+else
+dbms_output.put_line('Invalid Gender....');
+end if;
+end;
+/
+create table hjd(sno number(10),sname varchar2(10),sgender varchar2(10));
+create table boys(no number(10),name varchar2(10),gender varchar2(10));
+
+ create table girls(no number(10),name varchar2(10),gender varchar2(10));
+insert into hjd values(1.'jiya','f');
+insert into hjd values(1,'arya','m');

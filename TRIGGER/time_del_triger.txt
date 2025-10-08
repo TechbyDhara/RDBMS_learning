@@ -1,0 +1,10 @@
+ create or replace trigger emdel
+ before delete on emp for each row
+ declare
+ hr number(5):=0;
+ begin
+ hr:= to_number(to_char(sysdate,'HH24'));
+ if hr between 8 and 12 then
+ raise_application_error(-20003,'do not allow delete on this time');
+ end if;
+ end;
