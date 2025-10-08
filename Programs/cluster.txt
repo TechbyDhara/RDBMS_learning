@@ -1,0 +1,35 @@
+ create cluster clusnm(id number(10));
+ create index indnm on cluster clusnm;
+ 
+ create table student(id number(10),rono number(10)) cluster clusnm(id);
+ create table grades(id number(10),grade varchar2(10)) cluster clusnm(id);
+ 
+ insert into student values(1,34);
+ insert into student values(2,84);
+ insert into student values(3,74);
+ insert into student values(4,54);
+ 
+ 
+ insert into grades values(1,'B');
+ insert into grades values(2,'B');
+ insert into grades values(3,'B');
+ 
+select s.rono,g.grade from student s join grades g on s.id=g.id;
+
+
+
+ create cluster clusnm2(id number(10))hashkeys 1000;
+ create table student2(id number(10),name varchar2(10)) cluster clusnm2(id);
+ create table grades2(id number(10),grade varchar2(10)) cluster clusnm2(id);
+ 
+ insert into student2 values(11,'dhara');
+ insert into student2 values(22,'kajal');
+ insert into student2 values(33,'namira');
+ insert into student2 values(44,'janvi');
+ 
+ 
+ insert into grades2 values(22,'C');
+ insert into grades2 values(44,'B');
+ insert into grades2 values(11,'A');
+ 
+ select s.name,g.grade from student2 s join grades2 g on s.id=g.id;
